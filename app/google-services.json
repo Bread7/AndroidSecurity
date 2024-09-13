@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "845230835213",
+    "project_id": "ict2215-project",
+    "storage_bucket": "ict2215-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845230835213:android:4492e6ebb330a865377744",
+        "android_client_info": {
+          "package_name": "com.example.ict2215_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": ""
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

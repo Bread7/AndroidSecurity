@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <!-- Include Bootstrap CSS from a CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS for additional styling */
+        body {
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        .table {
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-top: 40px;
+            color: #007bff; /* Bootstrap primary color */
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background-color: #ffffff; /* White background for content */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,.05); /* Soft shadow for container */
+        }
+        .table-bordered th,
+        .table-bordered td {
+            border-color: #dee2e6; /* Keeping borders light */
+        }
+        .table thead th {
+            background-color: #007bff; /* Bootstrap primary color for table headers */
+            color: #ffffff; /* White text for contrast */
+        }
+        a {
+            color: #007bff; /* Bootstrap primary color for links */
+        }
+        a:hover {
+            color: #0056b3; /* Darker blue on hover for better user feedback */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Locations</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Location Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for location in locations %}
+                <tr>
+                    <td>{{ location }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Contacts</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Contact Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% for user, files in user_files.items() %}
+            <h2>{{ user }} Files</h2>
+            <h3>Images</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Image Files</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for image in files['images'] %}
+                    <tr>
+                        <td><a href="{{ '/flaskapp' + url_for('uploaded_file', filename=user + '/images/' + image) }}" target="_blank">{{ image }}</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h3>Videos</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Video Files</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for video in files['videos'] %}
+                    <tr>
+                        <td><a href="{{ '/flaskapp' + url_for('uploaded_file', filename=user + '/videos/' + video) }}" target="_blank">{{ video }}</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
+    </div>
+</body>
+</html>

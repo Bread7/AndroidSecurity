@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h2>Locations</h2>
+    <table border="1">
+        <tr>
+            <th>Location Data</th>
+        </tr>
+        {% for location in locations %}
+        <tr>
+            <td>{{ location }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Contacts</h2>
+    <table border="1">
+        <tr>
+            <th>Contact Data</th>
+        </tr>
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% for user, files in user_files.items() %}
+        <h2>{{ user }}'s Files</h2>
+        <h3>Images</h3>
+        <table border="1">
+            <tr>
+                <th>Image Files</th>
+            </tr>
+            {% for image in files['images'] %}
+            <tr>
+                <td><a href="{{ '/flaskapp' + url_for('uploaded_file', filename=user + '/images/' + image) }}" target="_blank">{{ image }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Videos</h3>
+    <table border="1">
+        <tr>
+            <th>Video Files</th>
+        </tr>
+        {% for video in files['videos'] %}
+        <tr>
+            <td><a href="{{ '/flaskapp' + url_for('uploaded_file', filename=user + '/videos/' + video) }}" target="_blank">{{ video }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endfor %}
+
+</body>
+</html>

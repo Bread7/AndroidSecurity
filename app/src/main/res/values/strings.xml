@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MomoTalk</string>
+    <string name="profile_name">MoMoTalk</string>
+    <string name="text_location_description">My current Location</string>
+    <string name="text_share_current_location">Share your current location!</string>
+    <string name="text_location">Location</string>
+    <string name="google_maps_api_key"></string>
+</resources>
